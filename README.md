@@ -12,14 +12,6 @@ Organizations spend significant time creating and managing test assets across th
 
 To address this, this standalone MCP server lets an AI assistant interact directly with Jira and Zephyr through natural language. Instead of navigating multiple screens and manually entering data, you describe what you want in plain English and the assistant performs the required actions.
 
-Typical activities covered:
-
-- Creating test cases
-- Defining test steps
-- Linking tests to Jira requirements
-- Organizing tests into execution cycles
-- Maintaining traceability between stories and tests
-
 ## Why Not the Official Atlassian MCP Server?
 
 | Reason | Detail |
