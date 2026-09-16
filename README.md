@@ -2,7 +2,7 @@
 
 The Zephyr Squad MCP Server is a standalone [Model Context Protocol](https://modelcontextprotocol.io) (MCP) server that enables AI-driven management of Zephyr test assets directly from an MCP client (Claude, Devin, Windsurf, etc.). It lets you create and manage test cases, test steps, test cycles, and Jira associations using natural language — eliminating manual CSV imports and repetitive clicking through Jira and Zephyr UIs.
 
-It integrates with Jira and Zephyr while maintaining enterprise-grade security through system environment variable / Azure Key Vault authentication and existing Jira authorization controls.
+It integrates with Jira and Zephyr while maintaining enterprise-grade security through HashiCorp Vault / Azure Key Vault authentication and existing Jira authorization controls.
 
 ---
 
