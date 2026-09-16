@@ -143,12 +143,6 @@ python zephyr_mcp_server.py --http     # streamable-http transport on port 8000
 - Shared `requests.Session` with automatic retry/backoff on `500/502/503/504`.
 - Destructive operations (`delete_test_case`) require an explicit, non-empty issue key and are logged.
 
-## Known Issues / TODO
-
-- [ ] `get_execution_results` / `get_cycle_execution_summary` signature currently doesn't match between the client and server layers — needs alignment on whether cycles are scoped by `cycle_key` alone or by `(cycle_id, project_key, version_id)`.
-- [ ] No automated test suite yet — coverage and audit logic in `zephyr_client.py` would benefit most from unit tests.
-- [ ] Confirm `requirements.txt` version floors stay pinned to what's actually available in your environment's package index.
-
 ## License
 
 Internal tool — no license specified.
