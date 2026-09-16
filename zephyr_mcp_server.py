@@ -28,7 +28,7 @@ logging.basicConfig(
     ],
 )
 _log = logging.getLogger(__name__)
-mcp = FastMCP("Zephyr Squad")
+mcp = FastMCP("Zephyr Scale")
 
 # ----------------Project / Issue Resolution ----------------
 
@@ -41,6 +41,11 @@ def get_project_id(project_key: str) -> str:
 def get_issue_id(issue_key: str) -> str:
     """Resolve a Jira issue key (e.g. PG1-26982) to its numeric issue ID."""
     return zc.get_issue_id(issue_key)
+
+@mcp.tool()
+def get_issue_type(issue_key: str) -> str:
+    """Resolve the jira issue type for the given issue key, eg BUG, TEST etc"""
+    return zc.get_issue_type(issue_key)
 
 # ----------------Test Cases ----------------
 
