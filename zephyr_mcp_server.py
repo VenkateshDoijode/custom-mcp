@@ -13,12 +13,9 @@ Credentials:
     Configure jira.base_url and azure.key_vault_url in config.toml.
     JIRA_TOKEN is read from Azure Key Vault (secret name: JIRA-TOKEN).
 """
-
 from __future__ import annotations
-
 import logging
 import os
-
 import zephyr_client as zc
 from fastmcp import FastMCP
 
@@ -230,6 +227,7 @@ def audit_test_cycle(cycle_key: str) -> dict:
     """
     return zc.audit_test_cycle(cycle_key)
 
+
 # ----------------Test Execution ----------------
 
 @mcp.tool()
@@ -248,6 +246,7 @@ def get_cycle_execution_summary(cycle_id: str, project_key: str, version_id: int
     Returns total, per-status counts, and overall pass percentage.
     """
     return zc.get_cycle_execution_summary(cycle_id, project_key, version_id)
+
 
 # ----------------Jira Issues ----------------
 
