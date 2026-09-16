@@ -1,0 +1,14 @@
+{
+  "_readme": [
+    "1. Copy this file to %APPDATA%\\Claude\\claude_desktop_config.json",
+    "2. Replace <PATH_OF_YOUR_PROJECT> with the absolute path to this project folder",
+    "3. Save and restart",
+    "4. Check Settings > Developer > MCP Servers to verify the server is connected"
+  ],
+  "mcpServers": {
+    "zephyr-squad": {
+      "command": "python",
+      "args": ["<PATH_OF_YOUR_PROJECT>/zephyr_mcp_server.py"]
+    }
+  }
+}
