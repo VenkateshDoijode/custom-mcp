@@ -1,0 +1,13 @@
+[jira]
+base_url = "https://<your-jira-host>"
+username = "<your-jira-username>"
+
+[azure]
+key_vault_url = "https://<your-vault-name>.vault.azure.net/"
+
+[defaults]
+test_reviewer    = "<default-test-reviewer-username>"
+folder           = "<zephyr-folder-path>"
+app_mnemonic     = "<app-mnemonic-value>"
+test_type        = "Regression Test"
+automation_status = "To Be Automated"
