@@ -252,7 +252,6 @@ def get_cycle_execution_summary(cycle_id: str, project_key: str, version_id: int
     """
     return zc.get_cycle_execution_summary(cycle_id, project_key, version_id)
 
-
 # ----------------Jira Issues ----------------
 
 @mcp.tool()
@@ -272,13 +271,13 @@ def search_issues(jql: str, max_results: int = 50) -> list[dict]:
 # ----------------Reporting ----------------
 
 @mcp.tool()
-def generate_test_summary(project_key: str, jql_filter: str = "") -> dict:
+def generate_test_summary(project_key: str, tql_filter: str = "") -> dict:
     """
     Aggregate latest execution status for all test cases in a project or sprint.
-    jql_filter : optional JQL to narrow scope, e.g. 'sprint="Sprint 24"'
+    tql_filter : optional TQL to narrow scope, e.g. 'sprint="Sprint 24"'
     Returns pass/fail/blocked counts and overall pass percentage.
     """
-    return zc.generate_test_summary(project_key, jql_filter)
+    return zc.generate_test_summary(project_key, tql_filter)
 
 # ----------------Entry Point ----------------
 
