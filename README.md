@@ -25,7 +25,7 @@ Typical activities covered:
 | Reason | Detail |
 |---|---|
 | **Cloud-only** | `mcp.atlassian.com` only connects to Atlassian Cloud instances (e.g. `yourcompany.atlassian.net`). |
-| **Private/on-premise blocked** | Our Jira is a self-hosted, on-premise, corporate instance. The cloud MCP endpoint cannot reach it. |
+| **Private/on-premise blocked** | Our Jira https://jira.<ORGANIZATION_NAME>.com is a self-hosted, on-premise, corporate instance. The cloud MCP endpoint cannot reach it. |
 | **No Zephyr support** | Even on Cloud, the Atlassian MCP covers only native Jira/Confluence APIs. Zephyr is a third-party plugin with its own separate REST API that isn't exposed by the Atlassian MCP. |
 | **No Zephyr API access** | The Atlassian MCP has no knowledge of Zephyr's test case, test step, test cycle, or execution endpoints. |
 
