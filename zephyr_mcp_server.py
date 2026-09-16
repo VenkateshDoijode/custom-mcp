@@ -236,13 +236,13 @@ def audit_test_cycle(cycle_key: str) -> dict:
 # ----------------Test Execution ----------------
 
 @mcp.tool()
-def get_execution_results(cycle_id: str, project_key: str, version_id: int = -1) -> list[dict]:
+def get_execution_results(cycle_key: str) -> list[dict]:
     """
     Get all test execution records for a test cycle.
     Returns per-test execution_id, status, executed_by, and executed_on.
     version_id = -1 means Unscheduled.
     """
-    return zc.get_execution_results(cycle_id, project_key, version_id)
+    return zc.get_execution_results(cycle_key)
 
 @mcp.tool()
 def get_cycle_execution_summary(cycle_id: str, project_key: str, version_id: int = -1) -> dict:
