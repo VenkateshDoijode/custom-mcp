@@ -1,6 +1,6 @@
 # Zephyr-Jira MCP Server
 
-A standalone, self-hosted [Model Context Protocol (MCP)](https://modelcontextprotocol.io) server that exposes Jira and Zephyr Scale test-management operations as tools an AI assistant (Claude, or any MCP-compatible client) can call directly — create test cases, link them to stories, audit test cycles, and generate coverage reports, all from natural language.
+A standalone, self-hosted [Model Context Protocol (MCP)](https://modelcontextprotocol.io) server that exposes Jira and Zephyr Scale test-management operations as tools an AI assistant (Claude, Cursor, Windsurf or any MCP-compatible clien) can call directly — create test cases, link them to stories, audit test cycles, and generate coverage reports, all from natural language.
 
 ---
 
@@ -19,8 +19,6 @@ There are now hundreds of community and vendor MCP servers available for Jira, Z
 - **Require broad, unscoped credentials** (personal API tokens pasted into config files, no secret rotation, no audit trail).
 - **Fail enterprise security review** outright, because the vendor cannot show where the server runs, where the token is stored, or what egress the tool makes.
 
-This project exists to solve that problem for a specific case: giving test engineers and SDETs at Wipro/BNY (and similar enterprise setups) safe, auditable, natural-language access to Jira + Zephyr Scale, without any of the above trade-offs.
-
 ## Why Not the Official Atlassian MCP Server?
 
 | Reason | Detail |
@@ -36,7 +34,7 @@ This project exists to solve that problem for a specific case: giving test engin
 
 - **Standalone, self-hosted.** The server runs entirely inside your own network (or your own machine) as a local process. There is no external SaaS component, no vendor cloud, and no data ever leaves your environment unless your own Jira instance is reached.
 - **Your Jira, your rules.** The Jira base URL is a configuration value you set yourself, e.g. `https://jira.yourcompany.net` — the server talks directly to your Jira/Zephyr instance over your existing network path (VPN, internal DNS, corporate proxy — whatever your organization already enforces). No requests go anywhere else.
-- **No secrets in code or config files.** The Jira API token is never hardcoded and never committed to source control. It is resolved at runtime from **Azure Key Vault** (secret name: `JIRA-TOKEN`), so credential storage, rotation, and access policy stay fully owned by your organization's existing secrets-management infrastructure.
+- **No secrets in code or config files.** The Jira API token is never hardcoded and never committed to source control. It is resolved at runtime from **Azure Key Vault/HashiCorp Vault** (secret name: `JIRA-TOKEN`), so credential storage, rotation, and access policy stay fully owned by your organization's existing secrets-management infrastructure.
 - **Least-surface footprint.** The server only implements the Jira/Zephyr operations it explicitly exposes as tools (see below) — there is no generic proxy, no arbitrary API pass-through, and no catch-all "run any REST call" tool.
 - **Transparent and auditable.** Every tool call is logged locally (`zephyr_mcp.log`) with the acting user, action, and target issue/project — giving you a local audit trail independent of Jira's own logs.
 
@@ -112,7 +110,7 @@ Azure Key Vault  —  resolves JIRA_TOKEN at runtime
 
 | Concern | How it's handled here |
 |---|---|
-| Credential storage | Jira token pulled from Azure Key Vault at runtime; never stored in code, config, or logs |
+| Credential storage | Jira token pulled from Azure Key Vault/HashiCorp Vault at runtime; never stored in code, config, or logs |
 | Network exposure | Server runs locally/on-prem; only outbound calls are to your own Jira base URL |
 | Data residency | No third-party proxy or SaaS relay — test and issue data never leaves your network boundary |
 | Least privilege | Tools are scoped to specific Jira/Zephyr operations, not a general-purpose API proxy |
@@ -121,7 +119,7 @@ Azure Key Vault  —  resolves JIRA_TOKEN at runtime
 
 > This is a personal/team project, not an officially reviewed enterprise product. Before deploying it in a regulated environment, run it through your organization's standard security and architecture review — the design choices above are meant to make that review straightforward, not to replace it.
 
-## Roadmap: AI Agent Layer
+## Future Roadmap: AI Agent Layer
 
 The current server exposes atomic, single-purpose tools — creating one test case, fetching one cycle's results, and so on. The next phase of this project is an **AI agent layer** on top of these tools, so an engineer can hand over a whole workflow instead of individual calls. For example: *"Generate test cases for this new story, link them, and audit last sprint's execution cycle for gaps."*
 
