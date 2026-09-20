@@ -70,6 +70,20 @@ Your Jira instance  —  https://jira.yourcompany.net
 Azure Key Vault  —  resolves JIRA_TOKEN at runtime
 ```
 
+```mermaid
+flowchart TD
+    A["MCP Client<br/>(Claude Desktop, etc.)"]
+    B["zephyr_mcp_server.py<br/>(FastMCP — tool definitions, logging)"]
+    C["zephyr_client.py<br/>(Jira + Zephyr Scale REST client)"]
+    D["Your Jira Instance<br/>jira.yourcompany.net"]
+    E["Azure Key Vault<br/>JIRA_TOKEN resolved at runtime"]
+
+    A -->|stdio / streamable-http| B
+    B --> C
+    C -->|REST API + JIRA_TOKEN| D
+    E -->|Runtime secret| C
+```
+
 ## Prerequisites
 
 - Python 3.10+
