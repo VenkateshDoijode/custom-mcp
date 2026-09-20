@@ -52,6 +52,7 @@ The server wraps `zephyr_client.py` (a thin client over the Jira and Zephyr Scal
 | **Coverage & reporting** | Report test coverage against stories/bugs in a project or sprint; generate aggregate pass/fail summaries |
 | **Jira queries** | Fetch any issue by key; run arbitrary JQL searches |
 
+
 ## Architecture
 
 ```mermaid
@@ -72,7 +73,8 @@ flowchart TD
     style C fill:#e8f0fe,stroke:#1a73e8,stroke-width:2px
     style D fill:#e6f4ea,stroke:#188038,stroke-width:2px
     style E fill:#fff4e5,stroke:#f29900,stroke-width:2px
-    
+```
+
 ## Prerequisites
 
 - Python 3.10+
