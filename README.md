@@ -54,7 +54,7 @@ The server wraps `zephyr_client.py` (a thin client over the Jira and Zephyr Scal
 
 ## Architecture
 
-
+```mermaid
 flowchart TD
     A["MCP Client<br/>Claude Desktop, etc."]
     B["zephyr_mcp_server.py<br/>FastMCP - tool definitions, logging"]
