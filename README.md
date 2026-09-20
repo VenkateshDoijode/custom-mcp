@@ -54,11 +54,11 @@ The server wraps `zephyr_client.py` (a thin client over the Jira and Zephyr Scal
 
 ## Architecture
 
-```mermaid
+
 flowchart TD
-    A["MCP Client<br/>(Claude Desktop, etc.)"]
-    B["zephyr_mcp_server.py<br/>(FastMCP — tool definitions, logging)"]
-    C["zephyr_client.py<br/>(Jira + Zephyr Scale REST client)"]
+    A["MCP Client<br/>Claude Desktop, etc."]
+    B["zephyr_mcp_server.py<br/>FastMCP - tool definitions, logging"]
+    C["zephyr_client.py<br/>Jira + Zephyr Scale REST client"]
     D["Your Jira Instance<br/>jira.yourcompany.net"]
     E["Azure Key Vault<br/>JIRA_TOKEN resolved at runtime"]
 
@@ -66,8 +66,13 @@ flowchart TD
     B --> C
     C -->|REST API + JIRA_TOKEN| D
     E -->|Runtime secret| C
-```
 
+    style A fill:#e8f0fe,stroke:#1a73e8,stroke-width:2px
+    style B fill:#e8f0fe,stroke:#1a73e8,stroke-width:2px
+    style C fill:#e8f0fe,stroke:#1a73e8,stroke-width:2px
+    style D fill:#e6f4ea,stroke:#188038,stroke-width:2px
+    style E fill:#fff4e5,stroke:#f29900,stroke-width:2px
+    
 ## Prerequisites
 
 - Python 3.10+
