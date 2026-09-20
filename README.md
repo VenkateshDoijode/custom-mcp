@@ -54,22 +54,6 @@ The server wraps `zephyr_client.py` (a thin client over the Jira and Zephyr Scal
 
 ## Architecture
 
-```
-MCP Client (Claude Desktop, etc.)
-        │  stdio / streamable-http
-        ▼
-zephyr_mcp_server.py   (FastMCP — tool definitions, logging)
-        │
-        ▼
-zephyr_client.py       (Jira + Zephyr Scale REST client)
-        │
-        ▼
-Your Jira instance  —  https://jira.yourcompany.net
-        │
-        ▼
-Azure Key Vault  —  resolves JIRA_TOKEN at runtime
-```
-
 ```mermaid
 flowchart TD
     A["MCP Client<br/>(Claude Desktop, etc.)"]
